@@ -21,4 +21,6 @@
   <?php wp_body_open() ?>
 
   <div id="main" class="main">
-    <header>Header</header>
+    <header id="site-header" class="site-header" role="banner">
+      <?php get_template_part('template-parts/nav') ?>
+    </header>

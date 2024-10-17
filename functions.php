@@ -25,11 +25,13 @@ function lich_enqueue_scripts() {
   $lich_script_filemtime = filemtime(get_template_directory() . '/assets/js/script.js');
   wp_register_script('lich-script', get_template_directory_uri() . '/assets/js/script.js', [], $lich_script_filemtime, true);
 
+  wp_register_script('popper-script', get_template_directory_uri() . '/assets/lib/bootstrap/popper.min.js', ['jquery'], false, true);
   wp_register_script('bootstrap-script', get_template_directory_uri() . '/assets/lib/bootstrap/bootstrap.min.js', ['jquery'], false, true);
 
 
   // Enqueue scripts
   wp_enqueue_script('lich-script');
+  wp_enqueue_script('popper-script');
   wp_enqueue_script('bootstrap-script');
 }
 add_action('wp_enqueue_scripts', 'lich_enqueue_scripts');
