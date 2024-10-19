@@ -6,11 +6,17 @@
  * @package Lich
  */
 
+if (!defined('LICH_DIR_PATH')) {
+  define('LICH_DIR_PATH', get_template_directory());
+}
+
+
+require_once LICH_DIR_PATH . '/inc/helpers/autoloader.php';
+
 function lich_enqueue_scripts() {
 
   // Register styles
   wp_register_style('bootstrap', get_template_directory_uri() . '/assets/lib/bootstrap/bootstrap.min.css', [], false);
-
   $lich_style_filemtime = filemtime(get_template_directory() . '/assets/css/style.css');
   wp_register_style('lich-style', get_template_directory_uri() . '/assets/css/style.css', [], $lich_style_filemtime);
 
@@ -24,7 +30,6 @@ function lich_enqueue_scripts() {
   // Register scripts
   $lich_script_filemtime = filemtime(get_template_directory() . '/assets/js/script.js');
   wp_register_script('lich-script', get_template_directory_uri() . '/assets/js/script.js', [], $lich_script_filemtime, true);
-
   wp_register_script('popper-script', get_template_directory_uri() . '/assets/lib/bootstrap/popper.min.js', ['jquery'], false, true);
   wp_register_script('bootstrap-script', get_template_directory_uri() . '/assets/lib/bootstrap/bootstrap.min.js', ['jquery'], false, true);
 
