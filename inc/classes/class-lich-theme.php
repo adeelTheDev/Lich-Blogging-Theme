@@ -18,6 +18,7 @@ class Lich_Theme {
   protected function __construct() {
     // Load classes
     Assets::get_instance();
+    Theme_Support::get_instance();
 
     $this->setup_hooks();
   }
